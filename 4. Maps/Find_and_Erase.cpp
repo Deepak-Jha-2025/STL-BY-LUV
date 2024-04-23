@@ -59,5 +59,37 @@ int main()
 
     print(m); 
 
+
+    // ******************************* Note **************************************
+    /* Insertion operation may take O(log(n)) time but it also depeneds on the key, 
+       basically the datatype of the key.
+    */
+
+    // Example: 
+    map<string, string> mp;
+    mp["abcd"] = "abcd"; // Now, it's TC is not only O(log(n))
+
+    // Actually this insertion in maps is implemented using Red Black Trees
+
+    /* So, whenever a new key-value is inserted, 1st that key is compared 
+       with the existing keys (log(n) comparisions happen internally), like
+       for m[6] = 2, 6 will be compared with the existing keys 1,3,5 and then
+       based on those comparisions that key,along with its value, gets inserted
+       in the correct place in the tree (which is visible to us as sorted order
+       in the map). Now, here the keys were ints, and their comparisions would
+       take O(1) time, so no issues.
+
+       But once the keys are strings, their comparision doesn't take O(1) time, 
+       but takes O(s.size) time, so this time would add up to the overall TC now.
+
+       So, for mp["abcd"] = "abcd", the key "abcd" will be compared with the 
+       existing key strings in the map, and now the TC becomes:
+
+                             O(s.size) * O(log(n)) , s.size = size of key string to be inserted
+                                                          n = size of map
+    */
+
+    
+
     return 0;
 }
