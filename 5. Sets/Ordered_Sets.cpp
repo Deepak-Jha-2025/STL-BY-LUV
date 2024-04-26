@@ -15,7 +15,7 @@ void print(set<string> &s) {
 int main()
 {
     // Maps used to store key-value pairs
-    // A key mapped to a value
+    // A key is mapped to a value
 
     // From these key-value pairs, remove the values
     // Now, all these keys remain, these keys comprise a "set"
